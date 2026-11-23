@@ -1,0 +1,21 @@
+{
+    "name": "GroveGames.Notifications.Unity",
+    "rootNamespace": "GroveGames.Notifications.Unity",
+    "references": [
+        "Unity.Notifications.Android",
+        "Unity.Notifications.iOS"
+    ],
+    "includePlatforms": [
+        "Android",
+        "Editor",
+        "iOS"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "autoReferenced": true,
+    "noEngineReferences": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "GroveGames.Notifications.dll"
+    ]
+}

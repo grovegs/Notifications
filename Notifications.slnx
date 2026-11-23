@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="src\GroveGames.Notifications\GroveGames.Notifications.csproj" />
+  <Project Path="tests\GroveGames.Notifications.Tests\GroveGames.Notifications.Tests.csproj" />
+</Solution>

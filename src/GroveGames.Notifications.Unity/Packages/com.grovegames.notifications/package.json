@@ -1,0 +1,22 @@
+{
+  "name": "com.grovegames.notifications",
+  "version": "0.0.0",
+  "displayName": "GroveGames.Notifications",
+  "description": "Local notifications for mobile games: scheduling, permission, channels and the launch payload, for .NET and Unity",
+  "unity": "2022.3",
+  "documentationUrl": "https://github.com/grovegs/Notifications",
+  "changelogUrl": "https://github.com/grovegs/Notifications/releases",
+  "licensesUrl": "https://github.com/grovegs/Notifications/blob/main/LICENSE",
+  "keywords": [
+    "notifications",
+    "local-notifications",
+    "mobile"
+  ],
+  "author": {
+    "name": "Grove Games",
+    "url": "https://github.com/grovegs"
+  },
+  "dependencies": {
+    "com.unity.mobile.notifications": "2.4.3"
+  }
+}

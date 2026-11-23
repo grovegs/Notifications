@@ -1,0 +1,25 @@
+{
+    "name": "GroveGames.Notifications.Unity.DependencyInjection",
+    "rootNamespace": "GroveGames.Notifications.Unity",
+    "references": [
+        "GUID:1c54440b17fc241ef8afabff55274380",
+        "GUID:680da9f8e63646ddb3c20c2f4045387d"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [
+        "GROVEGAMES_DEPENDENCYINJECTION"
+    ],
+    "versionDefines": [
+        {
+            "name": "com.grovegames.dependencyinjection",
+            "expression": "0.6.0",
+            "define": "GROVEGAMES_DEPENDENCYINJECTION"
+        }
+    ],
+    "noEngineReferences": false
+}
