@@ -3,7 +3,7 @@ using Unity.Notifications.iOS;
 
 namespace GroveGames.Notifications.Unity
 {
-    public sealed class IOSNotificationPermission : INotificationPermission
+    public sealed class IosNotificationPermission : INotificationPermission
     {
         private AuthorizationRequest? _request;
 
