@@ -3,7 +3,7 @@ using Unity.Notifications.iOS;
 
 namespace GroveGames.Notifications.Unity
 {
-    public sealed class IOSNotificationScheduler : INotificationScheduler
+    public sealed class IosNotificationScheduler : INotificationScheduler
     {
         public void Schedule(in NotificationRequest request)
         {

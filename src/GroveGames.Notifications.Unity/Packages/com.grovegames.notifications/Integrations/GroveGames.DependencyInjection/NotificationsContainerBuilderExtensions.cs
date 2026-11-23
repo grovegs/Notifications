@@ -15,9 +15,9 @@ namespace GroveGames.Notifications.Unity
             builder.AddSingleton<INotificationPermission, AndroidNotificationPermission>();
             builder.AddSingleton<INotificationChannelRegistry, AndroidNotificationChannelRegistry>();
 #elif UNITY_IOS
-            builder.AddSingleton<INotificationScheduler, IOSNotificationScheduler>();
-            builder.AddSingleton<INotificationPermission, IOSNotificationPermission>();
-            builder.AddSingleton<INotificationChannelRegistry, IOSNotificationChannelRegistry>();
+            builder.AddSingleton<INotificationScheduler, IosNotificationScheduler>();
+            builder.AddSingleton<INotificationPermission, IosNotificationPermission>();
+            builder.AddSingleton<INotificationChannelRegistry, IosNotificationChannelRegistry>();
 #endif
             return builder;
         }

@@ -3,7 +3,7 @@ using Unity.Notifications.iOS;
 
 namespace GroveGames.Notifications.Unity
 {
-    public sealed class IOSNotificationLaunchSource : INotificationLaunchSource
+    public sealed class IosNotificationLaunchSource : INotificationLaunchSource
     {
         private bool _consumed;
 
