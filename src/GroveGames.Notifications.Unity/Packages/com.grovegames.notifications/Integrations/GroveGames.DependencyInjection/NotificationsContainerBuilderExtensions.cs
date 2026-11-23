@@ -1,0 +1,25 @@
+using GroveGames.DependencyInjection;
+
+namespace GroveGames.Notifications.Unity
+{
+    public static class NotificationsContainerBuilderExtensions
+    {
+        public static IContainerBuilder AddNotifications(this IContainerBuilder builder)
+        {
+#if UNITY_EDITOR
+            builder.AddSingleton<INotificationScheduler, EditorNotificationScheduler>();
+            builder.AddSingleton<INotificationPermission, EditorNotificationPermission>();
+            builder.AddSingleton<INotificationChannelRegistry, EditorNotificationChannelRegistry>();
+#elif UNITY_ANDROID
+            builder.AddSingleton<INotificationScheduler, AndroidNotificationScheduler>();
+            builder.AddSingleton<INotificationPermission, AndroidNotificationPermission>();
+            builder.AddSingleton<INotificationChannelRegistry, AndroidNotificationChannelRegistry>();
+#elif UNITY_IOS
+            builder.AddSingleton<INotificationScheduler, IOSNotificationScheduler>();
+            builder.AddSingleton<INotificationPermission, IOSNotificationPermission>();
+            builder.AddSingleton<INotificationChannelRegistry, IOSNotificationChannelRegistry>();
+#endif
+            return builder;
+        }
+    }
+}
