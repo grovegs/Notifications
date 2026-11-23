@@ -1,6 +1,6 @@
 {
   "name": "com.grovegames.notifications",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "displayName": "GroveGames.Notifications",
   "description": "Local notifications for mobile games: scheduling, permission, channels and the launch payload, for .NET and Unity",
   "unity": "2022.3",
