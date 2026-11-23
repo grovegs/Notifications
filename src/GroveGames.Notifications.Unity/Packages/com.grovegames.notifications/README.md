@@ -74,7 +74,7 @@ var payload = launchSource.ConsumeLaunchPayload();
 
 ### Usage
 
-With [GroveGames.DependencyInjection](https://github.com/grovegs/DependencyInjection) installed, `AddNotifications()` registers the implementations for the current platform:
+With [GroveGames.DependencyInjection](https://github.com/grovegs/DependencyInjection) installed, `AddNotifications()` registers the scheduler, the permission and the channel registry for the current platform. Register the `INotificationLaunchSource` implementation yourself:
 
 ```csharp
 using GroveGames.Notifications.Unity;
