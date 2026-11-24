@@ -1,0 +1,18 @@
+{
+    "name": "GroveGames.Notifications.Unity.Testing",
+    "rootNamespace": "GroveGames.Notifications.Testing",
+    "references": [
+        "GroveGames.Notifications.Unity"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
