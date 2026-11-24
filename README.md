@@ -14,6 +14,7 @@ Local notifications for mobile games: scheduling, permission, channels and the l
 - `INotificationChannelRegistry`: register the channels a notification is posted to
 - `INotificationLaunchSource`: read, once, the payload of the notification that opened the app
 - Unity: implementations for Android and iOS on top of `com.unity.mobile.notifications`, and implementations that do nothing for the Editor
+- Test doubles for your own tests: `FakeNotificationChannelRegistry`, `FakeNotificationPermission` and `FakeNotificationScheduler` in the editor-only `GroveGames.Notifications.Unity.Testing` assembly
 
 ## .NET
 
