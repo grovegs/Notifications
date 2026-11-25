@@ -51,7 +51,7 @@ var payload = launchSource.ConsumeLaunchPayload();
 
 - `Request()` starts the system dialog and returns at once. Read `Status` until it leaves `Pending`.
 - Scheduling with an id that is already scheduled replaces that notification.
-- `ConsumeLaunchPayload()` returns the payload the first time it is called and `null` after that.
+- `ConsumeLaunchPayload()` returns the payload the first time it is called and `null` after that. On iOS the answer can arrive a few frames after launch: until then it returns `null` without consuming, so call it again on a later frame if it matters.
 
 ## Unity
 
@@ -87,7 +87,8 @@ builder.AddNotifications();
 
 - Android notification ids come from the text of `NotificationId` through a stable FNV-1a hash.
 - `ChannelId` is a notification channel on Android and the category identifier on iOS. Registering a channel does nothing on iOS.
-- A repeating notification on iOS needs a `RepeatInterval` of at least 60 seconds.
+- A repeating notification on iOS needs a `RepeatInterval` of at least 60 seconds; a shorter one is raised to 60 seconds with a warning. On iOS a repeating notification first fires one interval from now and ignores `FireTime`.
+- `FireTime` may be UTC or local; iOS converts a UTC time to local time.
 - Cancelling removes the scheduled notification and the delivered one.
 
 ## Development

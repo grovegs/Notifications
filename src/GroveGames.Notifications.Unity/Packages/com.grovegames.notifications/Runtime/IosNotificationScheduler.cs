@@ -5,6 +5,8 @@ namespace GroveGames.Notifications.Unity
 {
     public sealed class IosNotificationScheduler : INotificationScheduler
     {
+        private const double MinimumRepeatSeconds = 60d;
+
         public void Schedule(in NotificationRequest request)
         {
             var notification = new iOSNotification
@@ -19,6 +21,12 @@ namespace GroveGames.Notifications.Unity
 
             if (request.RepeatInterval is { } repeatInterval)
             {
+                if (repeatInterval.TotalSeconds < MinimumRepeatSeconds)
+                {
+                    UnityEngine.Debug.LogWarning($"iOS repeats a notification at least every {MinimumRepeatSeconds} seconds, so '{request.Id}' repeats every minute instead of every {repeatInterval.TotalSeconds} seconds.");
+                    repeatInterval = System.TimeSpan.FromSeconds(MinimumRepeatSeconds);
+                }
+
                 notification.Trigger = new iOSNotificationTimeIntervalTrigger
                 {
                     TimeInterval = repeatInterval,
@@ -27,7 +35,7 @@ namespace GroveGames.Notifications.Unity
             }
             else
             {
-                var fireTime = request.FireTime;
+                var fireTime = request.FireTime.Kind == System.DateTimeKind.Utc ? request.FireTime.ToLocalTime() : request.FireTime;
 
                 notification.Trigger = new iOSNotificationCalendarTrigger
                 {
