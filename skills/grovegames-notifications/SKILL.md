@@ -12,5 +12,5 @@ Rules for game code that uses this package. They hold in every game. The API is 
 - Ask for the permission at a moment the player understands, never on first launch. `Request()` does not block: read `Status` until it leaves `Pending`, then branch on `Granted`, `Denied` and `DeniedPermanently`. Do not ask again after `DeniedPermanently`.
 - A notification id is a constant per kind of notification, such as `"stash.full"`. Scheduling the same id again replaces the pending one, so reschedule instead of cancelling first.
 - Schedule from the time the player will actually be away: when the app goes to the background, with the fire time worked out from game state. Cancel what no longer applies when the app comes back.
-- Read `ConsumeLaunchPayload()` once at startup. It returns the payload only the first time.
+- Read `ConsumeLaunchPayload()` at startup. It returns the payload only the first time. On iOS it returns `null` until the system has answered, so read it again on a later frame before deciding there was none.
 - The payload is a short route such as `"stash"`, never player data.
