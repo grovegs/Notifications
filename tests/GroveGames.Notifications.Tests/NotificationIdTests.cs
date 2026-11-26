@@ -43,4 +43,24 @@ public sealed class NotificationIdTests
 
         Assert.NotEqual(first, second);
     }
+
+    [Fact]
+    public void ImplicitString_Default_ReturnsEmpty()
+    {
+        var id = default(NotificationId);
+
+        string text = id;
+
+        Assert.Equal(string.Empty, text);
+    }
+
+    [Fact]
+    public void ImplicitInt_Default_ReturnsTheHashOfEmpty()
+    {
+        var id = default(NotificationId);
+
+        int hash = id;
+
+        Assert.Equal((int)new NotificationId(string.Empty), hash);
+    }
 }

@@ -9,7 +9,7 @@ public readonly struct NotificationId
         _id = id;
     }
 
-    public static implicit operator string(NotificationId id) => id._id;
+    public static implicit operator string(NotificationId id) => id._id ?? string.Empty;
     public static explicit operator NotificationId(string id) => new(id);
     public static implicit operator int(NotificationId id) => id.ComputeHash();
 
@@ -20,11 +20,12 @@ public readonly struct NotificationId
             const uint OffsetBasis = 2166136261u;
             const uint Prime = 16777619u;
 
+            var id = _id ?? string.Empty;
             var hash = OffsetBasis;
 
-            for (var i = 0; i < _id.Length; i++)
+            for (var i = 0; i < id.Length; i++)
             {
-                hash ^= _id[i];
+                hash ^= id[i];
                 hash *= Prime;
             }
 
