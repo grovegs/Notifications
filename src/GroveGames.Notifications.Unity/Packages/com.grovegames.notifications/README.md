@@ -85,7 +85,7 @@ builder.AddNotifications();
 
 ### Platform notes
 
-- Android notification ids come from the text of `NotificationId` through a stable FNV-1a hash.
+- Android notification ids come from the text of `NotificationId` through a stable FNV-1a hash. `default(NotificationId)` is the empty id, so give every notification its own id: two requests with the same id replace each other.
 - `ChannelId` is a notification channel on Android and the category identifier on iOS. Registering a channel does nothing on iOS.
 - A repeating notification on iOS needs a `RepeatInterval` of at least 60 seconds; a shorter one is raised to 60 seconds with a warning. On iOS a repeating notification first fires one interval from now and ignores `FireTime`.
 - `FireTime` may be UTC or local; iOS converts a UTC time to local time.
