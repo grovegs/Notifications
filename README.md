@@ -14,7 +14,7 @@ Local notifications for mobile games: scheduling, permission, channels and the l
 - `INotificationChannelRegistry`: register the channels a notification is posted to
 - `INotificationLaunchSource`: read, once, the payload of the notification that opened the app
 - Unity: implementations for Android and iOS on top of `com.unity.mobile.notifications`, and implementations that do nothing for the Editor
-- Test doubles for your own tests: `FakeNotificationChannelRegistry`, `FakeNotificationPermission` and `FakeNotificationScheduler` in the editor-only `GroveGames.Notifications.Unity.Testing` assembly
+- Test doubles for your own tests: `FakeNotificationChannelRegistry`, `FakeNotificationLaunchSource`, `FakeNotificationPermission` and `FakeNotificationScheduler` in the editor-only `GroveGames.Notifications.Unity.Testing` assembly
 
 ## .NET
 
@@ -88,7 +88,8 @@ builder.AddNotifications();
 - Android notification ids come from the text of `NotificationId` through a stable FNV-1a hash. `default(NotificationId)` is the empty id, so give every notification its own id: two requests with the same id replace each other.
 - `ChannelId` is a notification channel on Android and the category identifier on iOS. Registering a channel does nothing on iOS.
 - A repeating notification on iOS needs a `RepeatInterval` of at least 60 seconds; a shorter one is raised to 60 seconds with a warning. On iOS a repeating notification first fires one interval from now and ignores `FireTime`.
-- `FireTime` may be UTC or local; iOS converts a UTC time to local time.
+- `FireTime` may be UTC or local; iOS converts a UTC time to local time. A `FireTime` that has already passed fires right away on both platforms.
+- A notification that fires while the game is in the foreground is shown on Android and not shown on iOS.
 - Cancelling removes the scheduled notification and the delivered one.
 
 ## Development

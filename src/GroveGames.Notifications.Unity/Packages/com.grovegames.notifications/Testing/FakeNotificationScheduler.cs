@@ -5,7 +5,12 @@ namespace GroveGames.Notifications.Testing
 {
     public sealed class FakeNotificationScheduler : INotificationScheduler
     {
-        private readonly Dictionary<string, NotificationRequest> _scheduled = new();
+        private readonly Dictionary<string, NotificationRequest> _scheduled;
+
+        public FakeNotificationScheduler()
+        {
+            _scheduled = new Dictionary<string, NotificationRequest>();
+        }
 
         public IReadOnlyDictionary<string, NotificationRequest> Scheduled => _scheduled;
 
