@@ -6,6 +6,7 @@ namespace GroveGames.Notifications.Unity
     public sealed class IosNotificationScheduler : INotificationScheduler
     {
         private const double MinimumRepeatSeconds = 60d;
+        private const double ImmediateSeconds = 1d;
 
         public void Schedule(in NotificationRequest request)
         {
@@ -31,6 +32,14 @@ namespace GroveGames.Notifications.Unity
                 {
                     TimeInterval = repeatInterval,
                     Repeats = true,
+                };
+            }
+            else if ((request.FireTime.Kind == System.DateTimeKind.Utc ? request.FireTime : request.FireTime.ToUniversalTime()) <= System.DateTime.UtcNow)
+            {
+                notification.Trigger = new iOSNotificationTimeIntervalTrigger
+                {
+                    TimeInterval = System.TimeSpan.FromSeconds(ImmediateSeconds),
+                    Repeats = false,
                 };
             }
             else
