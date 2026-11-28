@@ -77,6 +77,8 @@ var payload = launchSource.ConsumeLaunchPayload();
 
 With [GroveGames.DependencyInjection](https://github.com/grovegs/DependencyInjection) installed, `AddNotifications()` registers the scheduler, the permission and the channel registry for the current platform. On a platform other than the Editor, Android and iOS it registers `NullNotificationScheduler`, `NullNotificationChannelRegistry` and `NullNotificationPermission`, which schedule nothing and report `DeniedPermanently`, so the same installer works on every platform. Register the `INotificationLaunchSource` implementation yourself:
 
+With [GroveGames.DeveloperTools](https://github.com/grovegs/DeveloperTools) installed and `GROVEGAMES_DEVELOPERTOOLS` defined, `AddNotifications()` also registers the Notifications options: a delay and "Schedule Test", "Request Permission" and "Cancel All" actions. The test uses its own "developer-tools" channel.
+
 ```csharp
 using GroveGames.Notifications.Unity;
 
