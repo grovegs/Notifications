@@ -1,4 +1,8 @@
 using GroveGames.DependencyInjection;
+#if GROVEGAMES_DEVELOPERTOOLS
+using GroveGames.DeveloperTools.Unity;
+using GroveGames.Notifications.Unity.DeveloperTools;
+#endif
 
 namespace GroveGames.Notifications.Unity
 {
@@ -22,6 +26,9 @@ namespace GroveGames.Notifications.Unity
             builder.AddSingleton<INotificationScheduler, NullNotificationScheduler>();
             builder.AddSingleton<INotificationPermission, NullNotificationPermission>();
             builder.AddSingleton<INotificationChannelRegistry, NullNotificationChannelRegistry>();
+#endif
+#if GROVEGAMES_DEVELOPERTOOLS
+            builder.AddDeveloperOptions<NotificationsDeveloperOptions>();
 #endif
             return builder;
         }
