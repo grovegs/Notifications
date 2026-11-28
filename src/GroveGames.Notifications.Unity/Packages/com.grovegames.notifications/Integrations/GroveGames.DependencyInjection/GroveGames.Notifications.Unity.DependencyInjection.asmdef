@@ -3,7 +3,9 @@
     "rootNamespace": "GroveGames.Notifications.Unity",
     "references": [
         "GUID:1c54440b17fc241ef8afabff55274380",
-        "GUID:680da9f8e63646ddb3c20c2f4045387d"
+        "GUID:680da9f8e63646ddb3c20c2f4045387d",
+        "GroveGames.Notifications.Unity.DeveloperTools",
+        "GroveGames.DeveloperTools.Unity.DependencyInjection"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
